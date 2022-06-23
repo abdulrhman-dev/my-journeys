@@ -13,4 +13,5 @@ function greeter(name, date) {
 }
 result = greeter("abood", new Date());
 console.log(result);
-var anyVar = "hello world";
+// noImplicitAny
+var username = "ahmed";
