@@ -51,7 +51,6 @@ names.forEach(name => {
 // optional types and object type
 
 function optional(name?:string){
-
     return name
 }
 

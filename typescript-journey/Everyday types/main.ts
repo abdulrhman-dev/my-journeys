@@ -126,8 +126,69 @@ function get(type: string | null) {
   //   console.log(type!.toUpperCase());
 }
 
-get();
+// get();
 
 /* <---------------------------------------------------------->*/
 // enums
 /* <---------------------------------------------------------->*/
+
+enum HeterogeneousEnum {
+  A = 5,
+  C,
+  D,
+  // can't put initlized enums before uninitlized enums
+  B = "hello",
+}
+
+console.log(HeterogeneousEnum.A);
+console.log(HeterogeneousEnum.C);
+console.log(HeterogeneousEnum.D);
+console.log(HeterogeneousEnum.B);
+
+function flipSignInt(number: number) {
+  return ~number + 1;
+}
+
+console.log(flipSignInt(9));
+console.log(flipSignInt(20));
+console.log(flipSignInt(100));
+
+enum Shapes {
+  Circle,
+  Square,
+}
+
+interface Shape {
+  kind: Shapes;
+  radius: number;
+}
+
+let c: Shape = {
+  kind: Shapes.Circle,
+  radius: 100,
+};
+
+function printShape(shape: Shapes) {
+  if (shape === Shapes.Circle) {
+    console.log("CIRCLE");
+  }
+
+  if (shape === Shapes.Square) {
+    console.log("SQUARE");
+  }
+}
+
+printShape(c.kind);
+printShape(Shapes.Square);
+
+// * Note: Enums are objects so you can do something like this
+console.log(Shapes.Circle);
+console.log(Shapes.Square);
+
+// ? the keyof operator in typescript
+
+// For an interface
+type interfaceKeys = keyof Shape;
+
+// For enums
+type keys = keyof typeof Shapes;
